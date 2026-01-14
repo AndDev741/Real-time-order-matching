@@ -28,4 +28,17 @@ class InMemoryTraderRepository implements TraderRepository {
     final index = _traders.indexWhere((trader) => trader.id == id);
     return index != -1 ? _traders[index] : null;
   }
+  
+  @override
+  void deleteTrader(int id) {
+    _traders.removeWhere((trader) => trader.id == id);
+  }
+  
+  @override
+  void updateTrader(Trader trader) {
+    final index = _traders.indexWhere((t) => t.id == trader.id);
+    if (index != -1) {
+      _traders[index] = trader;
+    }
+  }
 }
