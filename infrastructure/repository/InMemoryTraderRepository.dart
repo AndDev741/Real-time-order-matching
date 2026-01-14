@@ -1,4 +1,4 @@
-import '../entities/Trader.dart';
+import '../../domain/entities/Trader.dart';
 import 'abstract/TraderRepository.dart';
 
 class InMemoryTraderRepository implements TraderRepository {

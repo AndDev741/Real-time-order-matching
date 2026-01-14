@@ -1,4 +1,4 @@
-import '../../entities/Trader.dart';
+import '../../../domain/entities/Trader.dart';
 
 abstract class TraderRepository {
   List<Trader> getAllTraders();
