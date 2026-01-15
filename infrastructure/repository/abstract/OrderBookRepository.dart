@@ -2,6 +2,7 @@ import '../../../domain/entities/OrderBook.dart';
 
 abstract class OrderBookRepository {
   OrderBook? getOrderBookBySymbol(Symbol symbol);
-  OrderBook? findFirstOrderBook();
+  List<OrderBook> getAllOrderBooks();
   void addOrderBook(OrderBook orderBook);
+  void updateOrderBook(OrderBook orderBook);
 }

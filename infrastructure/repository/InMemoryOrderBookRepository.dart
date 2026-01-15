@@ -10,14 +10,22 @@ class InMemoryOrderBookRepository implements OrderBookRepository {
         _ordersBooks.indexWhere((orderBook) => orderBook.symbol == symbol);
     return index != -1 ? _ordersBooks[index] : null;
   }
-
-  @override
-  OrderBook? findFirstOrderBook() {
-    return _ordersBooks.isNotEmpty ? _ordersBooks.first : null;
-  }
   
   @override
   void addOrderBook(OrderBook orderBook) {
     _ordersBooks.add(orderBook);
+  }
+  
+  @override
+  void updateOrderBook(OrderBook orderBook) {
+    final index = _ordersBooks.indexWhere((ob) => ob.symbol == orderBook.symbol);
+    if (index != -1) {
+      _ordersBooks[index] = orderBook;
+    }
+  }
+  
+  @override
+  List<OrderBook> getAllOrderBooks() {
+    return _ordersBooks;
   }
 }
